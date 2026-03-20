@@ -1,0 +1,318 @@
+/* ================================================================
+   GymSync — Dark Blue Theme  |  application.css
+   ================================================================
+   HOW TO CHANGE COLOURS — Quick Reference:
+   ─────────────────────────────────────────
+   Table cell text          →  .table-cell          -fx-text-fill
+   Table column headers     →  .table-view .column-header .label  -fx-text-fill
+   Table row text           →  .table-row-cell      -fx-text-fill
+   Sidebar nav text         →  DashboardPage.java   navStyle() method
+   Section titles           →  UIHelper.java        sectionTitle()
+   Stat card numbers        →  UIHelper.java        statCard()
+   Status text (Active etc) →  UIHelper.java        statusBadge()
+   Role text (ADMIN/STAFF)  →  UIHelper.java        roleBadge()
+   Field labels (Name etc)  →  UIHelper.java        dlgGroup()
+   Input field text         →  .text-field          -fx-text-fill
+   Input placeholder text   →  .text-field          -fx-prompt-text-fill
+   Popup/Alert title        →  .dialog-pane .header-panel .label  -fx-text-fill
+   Popup/Alert content text →  .dialog-pane .content .label       -fx-text-fill
+   Popup/Alert background   →  .dialog-pane         -fx-background-color
+   Popup OK/Cancel buttons  →  .dialog-pane .button -fx-text-fill
+   ListView rows text       →  .list-cell           -fx-text-fill
+   Tooltip text             →  .tooltip             -fx-text-fill
+   ================================================================ */
+
+/* ── Root ──────────────────────────────────────────────────────── */
+.root {
+    -fx-background-color: #0d1b2a;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ── Text field / Password field ───────────────────────────────── */
+.text-field, .password-field {
+    -fx-background-color: #1b2a3b;
+    -fx-border-color: #2e4057;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #ffffff;           /* ← INPUT TEXT COLOUR  — change this */
+    -fx-prompt-text-fill: #4a6080;    /* ← PLACEHOLDER TEXT   — change this */
+    -fx-pref-height: 40px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #00a8e8;
+    -fx-border-width: 2px;
+}
+
+.text-field.error, .password-field.error {
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 2px;
+}
+
+/* ── TextArea ──────────────────────────────────────────────────── */
+.text-area {
+    -fx-background-color: #1b2a3b;
+    -fx-border-color: #2e4057;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #ffffff;           /* ← TEXTAREA TEXT COLOUR */
+    -fx-prompt-text-fill: #4a6080;
+}
+.text-area .content {
+    -fx-background-color: #1b2a3b;
+    -fx-border-color: transparent;
+}
+
+/* ── ComboBox ──────────────────────────────────────────────────── */
+.combo-box {
+    -fx-background-color: #1b2a3b;
+    -fx-border-color: #2e4057;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #e8f4ff;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #e8f4ff;
+    -fx-background-color: #1b2a3b;
+}
+.combo-box-popup .list-view {
+    -fx-background-color: #1b2a3b;
+    -fx-border-color: #2e4057;
+}
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #243447;
+    -fx-text-fill: #00d4ff;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: #00a8e8;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 9px 20px;
+    -fx-cursor: hand;
+}
+.btn-primary:hover   { -fx-background-color: #007bb5; }
+.btn-primary:pressed { -fx-background-color: #005f8a; }
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #00d4ff;           /* ← SECONDARY BTN TEXT */
+    -fx-border-color: #00a8e8;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-padding: 7px 14px;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover { -fx-background-color: rgba(0,168,232,0.10); }
+
+.btn-danger {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff6b6b;           /* ← DANGER BTN TEXT */
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 12px;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: rgba(231,76,60,0.10); }
+
+/* ── Hyperlink ─────────────────────────────────────────────────── */
+.hyperlink {
+    -fx-text-fill: #00d4ff;           /* ← HYPERLINK TEXT */
+    -fx-border-color: transparent;
+    -fx-font-size: 13px;
+}
+.hyperlink:hover { -fx-underline: true; }
+
+/* ── Table ─────────────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: #0e1f30;
+    -fx-border-color: #1e3a5f;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+.table-view .column-header-background {
+    -fx-background-color: #0a1929;
+}
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7ec8e3;           /* ← TABLE HEADER TEXT  — change this */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 8px;
+}
+.table-row-cell {
+    -fx-background-color: #0e1f30;
+    -fx-border-color: transparent;
+    -fx-text-fill: #daeeff;           /* ← TABLE ROW TEXT     — change this */
+}
+.table-row-cell:odd {
+    -fx-background-color: #0b1a28;
+}
+.table-row-cell:selected {
+    -fx-background-color: #1a3a5c;
+    -fx-text-fill: #ffffff;           /* ← SELECTED ROW TEXT  — change this */
+}
+.table-row-cell:hover {
+    -fx-background-color: #162d44;
+}
+.table-cell {
+    -fx-text-fill: #daeeff;           /* ← TABLE CELL TEXT    — change this */
+    -fx-border-color: transparent;
+    -fx-padding: 8px;
+}
+.table-view .filler { -fx-background-color: #0a1929; }
+.table-view .corner { -fx-background-color: #0a1929; }
+
+/* ── ScrollBar ─────────────────────────────────────────────────── */
+.scroll-bar {
+    -fx-background-color: #0d1b2a;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #1e3a5f;
+    -fx-background-radius: 4px;
+}
+.scroll-bar .track { -fx-background-color: transparent; }
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.scroll-pane > .viewport { -fx-background-color: transparent; }
+
+/* ── ListView ──────────────────────────────────────────────────── */
+.list-view {
+    -fx-background-color: #0e1f30;
+    -fx-border-color: #1e3a5f;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+.list-cell {
+    -fx-background-color: #0e1f30;
+    -fx-text-fill: #daeeff;           /* ← LIST ROW TEXT      — change this */
+    -fx-font-size: 12px;
+    -fx-padding: 8px 12px;
+    -fx-border-color: #152336;
+    -fx-border-width: 0 0 1 0;
+}
+.list-cell:odd    { -fx-background-color: #0b1a28; }
+.list-cell:selected { -fx-background-color: #1a3a5c; -fx-text-fill: #ffffff; }
+.list-cell:hover  { -fx-background-color: #162d44; }
+
+/* ── Tooltip ───────────────────────────────────────────────────── */
+.tooltip {
+    -fx-background-color: #1b2a3b;
+    -fx-text-fill: #e8f4ff;           /* ← TOOLTIP TEXT       — change this */
+    -fx-border-color: #2e4057;
+    -fx-font-size: 11px;
+}
+
+/* ================================================================
+   ALERT / DIALOG POPUP STYLES
+   JavaFX Alert dialogs use .dialog-pane as their root.
+   These rules change how ALL popups look throughout the system.
+   ================================================================ */
+
+/* Outer container of every Alert / dialog */
+.dialog-pane {
+    -fx-background-color: #0f1e30;    /* ← POPUP BACKGROUND   — change this */
+    -fx-border-color: #1e3a5f;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+/* The coloured band at the top that holds the title / icon */
+.dialog-pane .header-panel {
+    -fx-background-color: #0a1929;    /* ← POPUP HEADER BG    — change this */
+    -fx-border-color: #1e3a5f;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 14px 20px;
+}
+
+/* Title text inside the header band */
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #ffffff;           /* ← POPUP TITLE TEXT   — change this */
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* The main body/content area of the popup */
+.dialog-pane .content {
+    -fx-background-color: #0f1e30;    /* ← POPUP BODY BG      — change this */
+    -fx-padding: 18px 20px;
+}
+
+/* The main content text (your message) */
+.dialog-pane .content .label,
+.dialog-pane .content-area .scroll-pane .viewport .label {
+    -fx-text-fill: #e8f4ff;           /* ← POPUP BODY TEXT    — change this */
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+/* The expandable label used by JavaFX for content text */
+.dialog-pane > .label {
+    -fx-text-fill: #e8f4ff;           /* ← POPUP MESSAGE TEXT — change this */
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+/* The row of OK / Cancel / Yes / No buttons at the bottom */
+.dialog-pane .button-bar {
+    -fx-background-color: #0a1929;    /* ← POPUP BUTTON BG    — change this */
+    -fx-border-color: #1e3a5f;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 10px 16px;
+}
+
+/* Individual popup buttons */
+.dialog-pane .button {
+    -fx-background-color: #1b2a3b;   /* ← POPUP BUTTON BG    — change this */
+    -fx-text-fill: #e8f4ff;          /* ← POPUP BUTTON TEXT  — change this */
+    -fx-border-color: #2e4057;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 12px;
+    -fx-padding: 7px 18px;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #243447;    /* ← POPUP BUTTON HOVER — change this */
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #00a8e8;
+}
+
+/* The default/focused button (OK on info, Yes on confirm) gets accent colour */
+.dialog-pane .button:default {
+    -fx-background-color: #00a8e8;   /* ← POPUP OK BTN BG    — change this */
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #00a8e8;
+    -fx-font-weight: bold;
+}
+.dialog-pane .button:default:hover {
+    -fx-background-color: #007bb5;
+}
+
+/* Icon graphic area */
+.dialog-pane .graphic-container {
+    -fx-padding: 0 10px 0 4px;
+}
+
+/* ── Expand button ─────────────────────────────────────────────── */
+.dialog-pane .details-button {
+    -fx-text-fill: #7ec8e3;
+}
