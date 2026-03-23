@@ -14,7 +14,7 @@ public class dbconnection {
 
     private final String url      = "jdbc:mysql://localhost:3306/gym_equipment_management";
     private final String user     = "root";
-    private final String password = "Qryptonix53574.#";   // ← your MySQL password
+    private final String password = "password";   // ← your MySQL password
 
     // ── Connection ────────────────────────────────────────────────────────────────
     public Connection getConnection() {
